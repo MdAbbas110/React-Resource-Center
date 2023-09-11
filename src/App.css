@@ -1,0 +1,29 @@
+body {
+    background-color: #3d3c3c;
+}
+
+.board {
+    padding: 20px;
+    border: 1px solid black;
+    width: 60%;
+}
+
+.block {
+    border: 2px solid;
+    height: 100px;
+    width: 100px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.row {
+    display: flex;
+}
