@@ -8,7 +8,7 @@ const app = express();
 
 app.use(express.json());
 
-app.post('todo', async (req, res) => {
+app.post('/todo', async (req, res) => {
   const createPayload = req.body;
   const parsePayload = createTodo.safeParse(createPayload);
 
@@ -30,7 +30,7 @@ app.post('todo', async (req, res) => {
   });
 });
 
-app.get('todos', async (req, res) => {
+app.get('/todos', async (req, res) => {
   //using async because hitting a db is async process and it can take time to we need to await on that request
   const todos = await todo.find();
   res.json({
@@ -38,7 +38,7 @@ app.get('todos', async (req, res) => {
   });
 });
 
-app.put('completed', async (req, res) => {
+app.put('/completed', async (req, res) => {
   s;
   const updatePayload = req.body;
   const parsePayLoad = updateTodo.safeParse(updatePayload);
