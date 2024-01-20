@@ -1,10 +1,5 @@
-import { RecoilRoot, useRecoilValue } from 'recoil';
-import {
-  jobsCount,
-  messageCount,
-  networkCount,
-  notificationCount,
-} from './atmos';
+import { RecoilRoot, useRecoilState, useRecoilValue } from 'recoil';
+import { notification, sumUpAll } from './atmos';
 
 function App() {
   return (
@@ -15,18 +10,16 @@ function App() {
 }
 
 function NavBar() {
-  const network = useRecoilValue(networkCount);
-  const messages = useRecoilValue(messageCount);
-  const jobs = useRecoilValue(jobsCount);
-  const notification = useRecoilValue(notificationCount);
+  const [notifications, setNotification] = useRecoilState(notification);
+  const totalNotification = useRecoilValue(sumUpAll);
   return (
     <>
       <button>Home</button>
-      <button>Network({network})</button>
-      <button>Message({messages})</button>
-      <button>Jobs{jobs}</button>
-      <button>notification({notification})</button>
-      <button>Me</button>
+      <button>Network ({notifications.network})</button>
+      <button>Message ({notifications.message})</button>
+      <button>Jobs {notifications.jobs}</button>
+      <button>notification ({notifications.notifications})</button>
+      <button>Me ({totalNotification})</button>
     </>
   );
 }
