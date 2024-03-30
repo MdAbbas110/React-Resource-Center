@@ -10,8 +10,10 @@ const Cart = () => {
     dispatch(addItems('payload'));
   };
 
+  const color = useSelector((store) => store.switchBg.color);
+  console.log(cartItems);
   return (
-    <div>
+    <div style={{ backgroundColor: color, marginTop: '20px' }}>
       <button onClick={handleAddItem}>Add fruits</button>
       <h1>Cart items {cartItems.length}</h1>
     </div>
